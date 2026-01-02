@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Lyangra - Film Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        .deck-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            min-height: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #fdc830);
+        }
+        
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            color: #1e3c72;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #2a5298;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #ff6b35;
+            padding-bottom: 10px;
+            font-weight: bold;
+            word-wrap: break-word;
+        }
+        
+        h3 {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            color: #ff6b35;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #444;
+            word-wrap: break-word;
+        }
+        
+        .tagline {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 5px solid #ff6b35;
+        }
+        
+        .logline {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            text-align: center;
+            line-height: 1.6;
+            color: #2a5298;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 12px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-8px);
+        }
+        
+        .stat-number {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            opacity: 0.9;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .character-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b35;
+        }
+        
+        .character-card h4 {
+            color: #1e3c72;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 8px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+        
+        li {
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .cta-box h2 {
+            color: white;
+            border: none;
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+        
+        .cta-box p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: white;
+            margin-top: 15px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .column-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 3px solid #2a5298;
+        }
+        
+        .quote {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-style: italic;
+            text-align: center;
+            color: #1e3c72;
+            margin: 30px 0;
+            padding: 20px;
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            border-radius: 8px;
+        }
+        
+        .budget-table {
+            width: 100%;
+            margin: 25px 0;
+            border-collapse: collapse;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .budget-table th {
+            background: #1e3c72;
+            color: white;
+            padding: 15px;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            text-align: left;
+        }
+        
+        .budget-table td {
+            padding: 12px 15px;
+            font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+            border-bottom: 1px solid #ddd;
+            white-space: nowrap;
+        }
+        
+        .budget-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .total-row {
+            background: #ffecd2;
+            font-weight: bold;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+        }
+        
+        /* Image Container Styles */
+        .image-container {
+            background: white;
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border: 3px solid #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-placeholder {
+            color: #999;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .deck-container {
+                padding: 10px;
+            }
+            
+            .slide {
+                padding: 25px 20px;
+                border-radius: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .stats-grid,
+            .character-grid,
+            .three-column {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .tagline,
+            .logline,
+            .quote {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            h1 {
+                letter-spacing: 1px;
+                line-height: 1.2;
+            }
+            
+            h2 {
+                padding-bottom: 8px;
+                line-height: 1.2;
+            }
+            
+            ul {
+                margin-left: 15px;
+            }
+            
+            .cta-box {
+                padding: 25px 15px;
+                border-radius: 12px;
+            }
+            
+            .footer {
+                padding: 20px 15px;
+            }
+            
+            /* Image container adjustments */
+            .image-container {
+                height: 250px;
+            }
+            
+            .slide > div > div {
+                padding: 25px 20px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slide {
+                padding: 20px 15px;
+                border-radius: 12px;
+            }
+            
+            .slide::before {
+                height: 4px;
+            }
+            
+            h1 {
+                letter-spacing: 0;
+                margin-bottom: 10px;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+                padding: 12px;
+                border-left: 4px solid #ff6b35;
+            }
+            
+            .logline {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            
+            .stat-box {
+                padding: 15px;
+            }
+            
+            .character-card {
+                padding: 15px;
+            }
+            
+            .column-box {
+                padding: 15px;
+            }
+            
+            .highlight-box {
+                padding: 15px;
+            }
+            
+            .quote {
+                font-size: 1.1rem;
+                padding: 15px;
+                border-left: 4px solid #ffc107;
+            }
+            
+            .budget-table th,
+            .budget-table td {
+                padding: 10px;
+            }
+            
+            .cta-box h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-box p {
+                font-size: 1.1rem;
+            }
+            
+            .image-container {
+                height: 200px;
+            }
+            
+            .image-placeholder {
+                font-size: 1rem;
+                padding: 15px;
+            }
+        }
+        
+        /* Tablet specific adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .deck-container {
+                padding: 15px;
+            }
+            
+            .slide {
+                padding: 40px 30px;
+            }
+            
+            .stats-grid,
+            .character-grid,
+            .three-column {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .character-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Prevent text from being too wide on large screens */
+        @media (min-width: 1400px) {
+            .deck-container {
+                max-width: 1300px;
+            }
+        }
+        
+        /* Print styles for better printing experience */
+        @media print {
+            body {
+                background: white !important;
+            }
+            
+            .slide {
+                box-shadow: none !important;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .cta-box, .highlight-box {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="deck-container">
+        
+        <!-- SLIDE 1: TITLE -->
+        <div class="slide">
+            <h1>LYANGRA</h1>
+            <div class="tagline">
+                From Village Ridicule to National Glory
+            </div>
+            <div class="logline">
+                A mother's unwavering love propels her differently-abled son from a hostile village in West Bengal to the national para-athletics championship, where they must overcome poverty, prejudice, and sabotage to prove that disability is not inability.
+            </div>
+            <p style="text-align: center; font-size: clamp(1.1rem, 2.5vw, 1.4rem); margin-top: 30px; color: #1e3c72;">
+                <strong>Genre:</strong> Inspirational Sports Drama | Biographical<br>
+                <strong>Language:</strong> Bengali with Hindi dubbing | English subtitles<br>
+                <strong>Target Duration:</strong> 135-145 minutes
+            </p>
+        </div>
+
+        <!-- SLIDE 2: WHY THIS FILM NOW -->
+        <div class="slide">
+            <h2>Why This Film Matters Now</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">26M+</div>
+                    <div class="stat-label">Differently-abled individuals in India</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">₹1000Cr+</div>
+                    <div class="stat-label">Sports biopics box office (last 5 years)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">#1</div>
+                    <div class="stat-label">First Indian para-athletics feature film</div>
+                </div>
+            </div>
+
+            <h3>Market Opportunity</h3>
+            <p>India has never seen a mainstream feature film about para-athletics. With the success of Dangal (₹2000Cr+), Chak De India (₹100Cr+), and recently 12th Fail (₹70Cr+), audiences are hungry for authentic, inspirational stories rooted in Indian soil.</p>
+
+            <p>Lyangra fills a crucial gap by addressing disability representation in Indian cinema while delivering the emotional punch and crowd-pleasing moments that make sports dramas box office gold.</p>
+
+            <div class="highlight-box">
+                <h3 style="color: white; margin-top: 0;">Universal Appeal</h3>
+                <p style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.25rem);">Every parent will see themselves in Malati. Every child who's been called "different" will see themselves in Suresh. This is India's story.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: STORY SYNOPSIS -->
+        <div class="slide">
+            <h2>The Story</h2>
+            
+            <p><strong>Act 1:</strong> Six-year-old Suresh is born with one leg shorter than the other in a rural West Bengal village where he's labeled "lyangra" (cripple). His father Ashok, pressured by village shame and his superstitious mother, rejects him. Only his mother Malati refuses to give up. When a progressive schoolteacher recognizes Suresh's raw speed despite his disability, secret training begins.</p>
+
+            <p><strong>Act 2:</strong> By age 14, Suresh wins the state para-athletics championship and qualifies for nationals in Delhi. Enter Mr. Ranjan Bose, a guilt-ridden arms manufacturer seeking redemption after his factory's gun paralyzed a child. He becomes Suresh's sponsor. But at nationals, corrupt coach Vikram Malhotra sabotages Suresh's wheelchair on behalf of a wealthy rival's mother, causing him to finish 4th in the finals.</p>
+
+            <p><strong>Act 3:</strong> CCTV evidence exposes the sabotage. Under massive public pressure, the race is re-conducted. Suresh wins with a national record time of 56.9 seconds. His father arrives seeking forgiveness, but faces the consequences of his absence. Suresh goes on to represent India at the 2000 Sydney Paralympics.</p>
+
+            <div class="quote">
+                "Your disability is not your identity. Your dreams are."
+                <div style="font-size: 0.7em; margin-top: 15px;">— Suresh Kumar, Age 15</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: THEMES & EMOTIONAL CORE -->
+        <div class="slide">
+            <h2>Themes & Emotional Core</h2>
+            
+            <div class="three-column">
+                <div class="column-box">
+                    <h3 style="margin-top: 0;">Unconditional Maternal Love</h3>
+                    <p>Malati's journey from a guilt-ridden mother who defines herself through her son's success to learning that true love means acceptance. This emotional arc will resonate with every parent in India.</p>
+                </div>
+                
+                <div class="column-box">
+                    <h3 style="margin-top: 0;">Redefining Disability</h3>
+                    <p>Suresh's transformation from a "broken" child seeking validation to a champion racing for self-worth challenges India's deep-seated prejudices about disability.</p>
+                </div>
+                
+                <div class="column-box">
+                    <h3 style="margin-top: 0;">Rural India's Hidden Talents</h3>
+                    <p>A powerful statement about how India's villages harbor extraordinary potential that's crushed by poverty, superstition, and lack of opportunity.</p>
+                </div>
+            </div>
+
+            <h3>What Makes This Story Different</h3>
+            <p><strong>Not a pity story:</strong> This is a high-stakes sports thriller with sabotage, corruption, and a climactic re-race that will have audiences on the edge of their seats.</p>
+            
+            <p><strong>Flawed, real characters:</strong> Malati isn't perfect—she pushes too hard. The father isn't purely evil—he's weak. These gray characters make the story authentic and relatable.</p>
+            
+            <p><strong>Visual spectacle:</strong> Wheelchair racing is cinematic gold—speed, danger, technique. Think Mad Max meets Chariots of Fire on an athletics track.</p>
+        </div>
+
+        <!-- SLIDE 5: CHARACTER SHOWCASE -->
+        <div class="slide">
+            <h2>Compelling Characters</h2>
+            
+            <div class="character-grid">
+                <div class="character-card">
+                    <h4>SURESH KUMAR (Age 6-15)</h4>
+                    <p>A people-pleaser born with a physical disability who learns to race for himself, not for validation. His signature move "The Suresh Surge" becomes legendary.</p>
+                    <p style="margin-top: 15px; font-style: italic; color: #ff6b35;"><strong>Arc:</strong> From seeking father's approval → Racing for self-worth</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>MALATI (Age 28-37)</h4>
+                    <p>A fierce mother who works night shifts as a cook while training Suresh at dawn. Her flaw: defining her worth through his success.</p>
+                    <p style="margin-top: 15px; font-style: italic; color: #ff6b35;"><strong>Arc:</strong> From guilt-driven pushing → Accepting and loving unconditionally</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>MR. RANJAN BOSE (Age 52)</h4>
+                    <p>Wealthy arms manufacturer haunted by guilt—his factory's gun paralyzed a 7-year-old. He sees redemption in Suresh.</p>
+                    <p style="margin-top: 15px; font-style: italic; color: #ff6b35;"><strong>Role:</strong> Mentor, sponsor, and media advocate</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>ASHOK (Age 30-39)</h4>
+                    <p>The weak father who lets village shame dictate his actions. His partial redemption arc adds complexity.</p>
+                    <p style="margin-top: 15px; font-style: italic; color: #ff6b35;"><strong>Arc:</strong> From rejection → Seeking forgiveness (with consequences)</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>VIKRAM MALHOTRA (Age 45)</h4>
+                    <p>Corrupt national coach and former runner. Bitter about his failed career, he sabotages Suresh for ₹5 lakhs.</p>
+                    <p style="margin-top: 15px; font-style: italic; color: #ff6b35;"><strong>Role:</strong> Primary antagonist—creates the climax</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>MASTERJI & CHHOTU</h4>
+                    <p>The progressive village teacher who first spots Suresh's talent, and Suresh's loyal childhood friend who defends him from bullies.</p>
+                    <p style="margin-top: 15px; font-style: italic; color: #ff6b35;"><strong>Role:</strong> Early believers and support system</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: CINEMATIC MOMENTS -->
+        <div class="slide">
+            <h2>Unforgettable Cinematic Moments</h2>
+            
+            <h3>The Bleeding Feet Reveal</h3>
+            <p>After winning his first school race at age 10, Suresh removes his shoes to reveal bloodied, swollen feet—he's been running on his limp for years. The doctor's verdict: "If he continues, he'll lose function in his good leg." Suresh's breakdown and Malati's embrace will leave theaters in tears.</p>
+
+            <h3>The Sabotage Discovery</h3>
+            <p>Finals day, national championship. Suresh's wheelchair tires deflate mid-race. He finishes 4th, collapsing in tears. CCTV footage reveals Coach Vikram puncturing the tires at 11:37 PM. The entire nation watches the scandal unfold on live TV.</p>
+
+            <h3>The Re-Race Climax</h3>
+            <p>After a media storm and #JusticeForSuresh trending nationwide, the finals are re-conducted. Suresh unleashes "The Suresh Surge" in the final 100m—explosive double-push technique, 45-degree cornering. He breaks the national record: 56.9 seconds. The stadium erupts.</p>
+
+            <h3>Father's Rejected Redemption</h3>
+            <p>Ashok travels 24 hours by train to Delhi to congratulate his son. Malati's ice-cold response: "Where were you when he was bleeding?" Suresh's calm verdict: "You don't get to celebrate victories when you weren't there for the defeats." Ashok sits alone in the stadium, watching from afar.</p>
+
+            <div class="highlight-box">
+                <p style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.35rem); margin: 0;"><strong>Visual Language:</strong> Handheld cameras for intimate family moments, sweeping crane shots for racing sequences, slow-motion for "The Suresh Surge." Think Dangal meets Slumdog Millionaire.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: KEY VISUAL MOMENTS WITH IMAGES -->
+        <div class="slide">
+            <h2>Key Visual Moments from the Film</h2>
+            
+            <p style="text-align: center; font-size: clamp(1.1rem, 2.5vw, 1.3rem); margin-bottom: 30px; color: #2a5298;">
+                <em>Replace the image URLs below with your actual image links to display reference visuals</em>
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 30px; margin: 25px 0;">
+                
+                <!-- Image 1: The Bleeding Feet Reveal -->
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <div class="image-container">
+                        <!-- REPLACE THIS IMAGE SRC WITH YOUR EXTERNAL IMAGE URL -->
+                        <img src="https://via.placeholder.com/800x400/667eea/ffffff?text=The+Bleeding+Feet+Reveal" alt="The Bleeding Feet Reveal">
+                    </div>
+                    <h4 style="color: white; font-size: clamp(1.2rem, 3vw, 1.5rem); margin-bottom: 10px;">The Bleeding Feet Reveal</h4>
+                    <p style="color: white; font-size: clamp(0.9rem, 2.5vw, 1.1rem); line-height: 1.6;">After winning his first school race at age 10, Suresh removes his shoes to reveal bloodied, swollen feet. The moment that breaks every heart—his determination to run despite the pain. Malati's embrace and the doctor's devastating verdict that he must switch to wheelchair racing or lose function in his good leg.</p>
+                </div>
+
+                <!-- Image 2: The Suresh Surge -->
+                <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <div class="image-container">
+                        <!-- REPLACE THIS IMAGE SRC WITH YOUR EXTERNAL IMAGE URL -->
+                        <img src="https://via.placeholder.com/800x400/f5576c/ffffff?text=The+Suresh+Surge" alt="The Suresh Surge">
+                    </div>
+                    <h4 style="color: white; font-size: clamp(1.2rem, 3vw, 1.5rem); margin-bottom: 10px;">The Suresh Surge</h4>
+                    <p style="color: white; font-size: clamp(0.9rem, 2.5vw, 1.1rem); line-height: 1.6;">The signature move that defines Suresh's racing style—explosive double-push technique combined with fearless 45-degree cornering in the final 100 meters. This is the visual spectacle that will have audiences on their feet. High-speed cinematography capturing every muscle, every push, every moment of pure determination.</p>
+                </div>
+
+                <!-- Image 3: Mother & Son at Dawn Training -->
+                <div style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <div class="image-container">
+                        <!-- REPLACE THIS IMAGE SRC WITH YOUR EXTERNAL IMAGE URL -->
+                        <img src="https://via.placeholder.com/800x400/ff6b35/ffffff?text=Mother+%26+Son+at+Dawn+Training" alt="Mother & Son at Dawn Training">
+                    </div>
+                    <h4 style="color: white; font-size: clamp(1.2rem, 3vw, 1.5rem); margin-bottom: 10px;">Mother & Son at Dawn Training</h4>
+                    <p style="color: white; font-size: clamp(0.9rem, 2.5vw, 1.1rem); line-height: 1.6;">The heart of the film—Malati works night shifts as a cook, then times Suresh's practice every morning at 5 AM at Kolkata's Maidan. Golden hour cinematography capturing their bond, her exhaustion, his determination. This relationship is what audiences will remember long after leaving the theater.</p>
+                </div>
+
+                <!-- Image 4: The Victory Moment -->
+                <div style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <div class="image-container">
+                        <!-- REPLACE THIS IMAGE SRC WITH YOUR EXTERNAL IMAGE URL -->
+                        <img src="https://via.placeholder.com/800x400/2a5298/ffffff?text=The+Victory+Moment" alt="The Victory Moment">
+                    </div>
+                    <h4 style="color: white; font-size: clamp(1.2rem, 3vw, 1.5rem); margin-bottom: 10px;">The Victory Moment</h4>
+                    <p style="color: white; font-size: clamp(0.9rem, 2.5vw, 1.1rem); line-height: 1.6;">After sabotage, media outrage, and a re-race, Suresh crosses the finish line with a national record time of 56.9 seconds. Arms raised, tears streaming, the entire stadium erupting. This is the moment that will trend on social media, that will be replayed on news channels, that will make India believe in the power of dreams over disability.</p>
+                </div>
+
+                <!-- Image 5: The Rejected Father's Reckoning -->
+                <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <div class="image-container">
+                        <!-- REPLACE THIS IMAGE SRC WITH YOUR EXTERNAL IMAGE URL -->
+                        <img src="https://via.placeholder.com/800x400/ff6b35/ffffff?text=The+Rejected+Father%27s+Reckoning" alt="The Rejected Father's Reckoning">
+                    </div>
+                    <h4 style="color: #444; font-size: clamp(1.2rem, 3vw, 1.5rem); margin-bottom: 10px;">The Rejected Father's Reckoning</h4>
+                    <p style="color: #444; font-size: clamp(0.9rem, 2.5vw, 1.1rem); line-height: 1.6;">After traveling 24 hours by train to seek forgiveness, Ashok faces the consequences of his absence. Malati's cold rejection and Suresh's calm verdict: "You don't get to celebrate victories when you weren't there for the defeats." He sits alone in the stadium, watching his son from afar—a powerful commentary on fatherhood, regret, and the price of cowardice.</p>
+                </div>
+
+                <!-- Image 6: From "Lyangra" to Legend -->
+                <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <div class="image-container">
+                        <!-- REPLACE THIS IMAGE SRC WITH YOUR EXTERNAL IMAGE URL -->
+                        <img src="https://via.placeholder.com/800x400/764ba2/ffffff?text=From+Lyangra+to+Legend" alt="From Lyangra to Legend">
+                    </div>
+                    <h4 style="color: #444; font-size: clamp(1.2rem, 3vw, 1.5rem); margin-bottom: 10px;">From "Lyangra" to Legend</h4>
+                    <p style="color: #444; font-size: clamp(0.9rem, 2.5vw, 1.1rem); line-height: 1.6;">The opening image that sets up the entire journey—6-year-old Suresh sits alone under a banyan tree, watching other children play cricket. They call him "Lyangra" (cripple) and laugh. Malati watches from a distance, her face torn between love and anguish. This is where the transformation begins—from village ridicule to national glory.</p>
+                </div>
+
+            </div>
+
+            <div class="highlight-box" style="margin-top: 40px;">
+                <h3 style="color: white; margin-top: 0;">How to Add Your Images</h3>
+                <p style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.25rem); margin: 0;">Replace the placeholder image URLs in the 'src' attribute with your actual image URLs. Each image container has an &lt;img&gt; tag where you can add your external image link. Example: src="https://your-image-url.com/image.jpg"</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: TARGET AUDIENCE & MARKET -->
+        <div class="slide">
+            <h2>Target Audience & Market Potential</h2>
+            
+            <h3>Primary Audience</h3>
+            <ul>
+                <li><strong>Families (Ages 10-55):</strong> Parents will connect with Malati's journey; kids will be inspired by Suresh</li>
+                <li><strong>Sports enthusiasts:</strong> Wheelchair racing as a visual spectacle</li>
+                <li><strong>Social impact viewers:</strong> Those seeking meaningful, inspirational content</li>
+                <li><strong>Regional stronghold:</strong> West Bengal, Odisha, Jharkhand (Bengali-speaking belt) + pan-India appeal</li>
+            </ul>
+
+            <h3>Comparable Box Office Successes</h3>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">₹2000Cr+</div>
+                    <div class="stat-label">Dangal (India + China)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">₹70Cr+</div>
+                    <div class="stat-label">12th Fail (₹20Cr budget)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">₹100Cr+</div>
+                    <div class="stat-label">Chak De India</div>
+                </div>
+            </div>
+
+            <h3>Distribution Strategy</h3>
+            <ul>
+                <li><strong>Theatrical Release:</strong> Wide release across India (2500+ screens)</li>
+                <li><strong>Regional Priority:</strong> Heavy push in West Bengal, Odisha, Assam during Durga Puja/festive season</li>
+                <li><strong>OTT Rights:</strong> Netflix, Amazon Prime Video, Disney+ Hotstar (₹25-35 Cr potential)</li>
+                <li><strong>Satellite Rights:</strong> Zee, Sony, Star (₹15-20 Cr potential)</li>
+                <li><strong>International:</strong> UK, USA, Middle East (Bengali diaspora + sports film audience)</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3 style="color: white; margin-top: 0;">Social Impact Bonus</h3>
+                <p style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.25rem); margin: 0;">This film will become required viewing in schools nationwide. Government partnerships, NGO screenings, and CSR tie-ups will extend its reach beyond traditional box office.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: PRODUCTION PLAN -->
+        <div class="slide">
+            <h2>World-Class Creative Team Attached</h2>
+            
+            <div class="highlight-box" style="margin-bottom: 30px;">
+                <h3 style="color: white; margin-top: 0;">Award-Winning Talent Already On Board</h3>
+                <p style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.25rem); margin: 0;">Our core creative team brings international recognition, National Awards, and a proven track record of emotionally resonant storytelling.</p>
+            </div>
+
+            <h3>Director: INDIRA DHAR</h3>
+            <p><strong>Kolkata-born filmmaker with global acclaim</strong></p>
+            <p>Indira Dhar has swiftly become a compelling voice in Indian cinema, blending emotional depth with global appeal. Her debut Bengali feature <strong>Putul</strong> (2024), about the lives of street children, premiered to a standing ovation at <strong>Cannes Film Festival</strong> and was considered for the <strong>97th Academy Awards in three categories</strong>. It had a special screening at IFFI Goa, 2025.</p>
+            
+            <p style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: clamp(0.9rem, 2.5vw, 1rem);"><strong>Why Indira for Lyangra:</strong> A filmmaker who often self-funds her work, Indira crafts stories rooted in truth, resilience, and universal human connection. Her ability to extract raw performances from non-actors and children, combined with her festival-proven eye for authentic storytelling, makes her the perfect visionary for Suresh's journey.</p>
+
+            <h3 style="margin-top: 30px;">Editor: ARGHYAKAMAL MITRA</h3>
+            <p><strong>National Award Winner for Best Editing</strong></p>
+            <p>Arghyakamal Mitra is one of Bengali cinema's most respected editors, having collaborated with acclaimed directors like <strong>Aparna Sen, Rituparno Ghosh, Aniruddha Roy Chowdhury, Suman Mukhopadhyay, Anjan Dutta, Anik Dutta, Soukarya Ghosal</strong>, and <strong>Bauddhayan Mukherji</strong>.</p>
+            
+            <p style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: clamp(0.9rem, 2.5vw, 1rem);"><strong>Why Arghyakamal for Lyangra:</strong> The film's structure—shifting between intimate family moments and high-octane racing sequences—demands an editor who understands both emotional beats and kinetic energy. Arghyakamal's proven mastery in Bengali cinema ensures authenticity while his technical precision will make the racing sequences pulse with adrenaline.</p>
+
+            <h3 style="margin-top: 30px;">Music Director: SAYAN GANGULY</h3>
+            <p><strong>Oscar-Contending Composer</strong></p>
+            <p>Sayan Ganguly is a prominent Indian music composer, music director, and arranger known for his versatile work in Bengali cinema. His notable projects include <strong>Durgeshgorer Guptodhon, Tenida and Company</strong>, and <strong>Putul</strong>—the latter earning <strong>Oscar contention for both its song and score</strong>.</p>
+            
+            <p style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: clamp(0.9rem, 2.5vw, 1rem);"><strong>Why Sayan for Lyangra:</strong> The film requires a musical palette that transitions seamlessly from traditional Bengali folk (village scenes) to pulsing, anthemic compositions (racing sequences). Sayan's Oscar-contending work on Putul proves he can create emotionally devastating music that resonates globally while staying rooted in Bengali culture. His score will be the heartbeat of Suresh's journey.</p>
+
+            <h3 style="margin-top: 30px;">Casting Requirements</h3>
+            
+            <div class="three-column">
+                <div class="column-box">
+                    <h4>MALATI</h4>
+                    <p><strong>Age 28-37</strong></p>
+                    <p>Options: Vidya Balan, Tabu, Konkona Sen Sharma, Tillotama Shome</p>
+                    <p style="margin-top: 10px; font-style: italic;">Must convey fierce maternal love and emotional depth</p>
+                </div>
+                
+                <div class="column-box">
+                    <h4>SURESH</h4>
+                    <p><strong>Age 6-15 (3 actors)</strong></p>
+                    <p>Open casting across West Bengal for authentic representation. Priority to differently-abled child actors.</p>
+                    <p style="margin-top: 10px; font-style: italic;">Extensive athletics training required</p>
+                </div>
+                
+                <div class="column-box">
+                    <h4>MR. BOSE</h4>
+                    <p><strong>Age 52</strong></p>
+                    <p>Options: Manoj Bajpayee, Pankaj Tripathi, Kay Kay Menon, Kumud Mishra</p>
+                    <p style="margin-top: 10px; font-style: italic;">Must embody guilt and redemption</p>
+                </div>
+            </div>
+
+            <div class="quote" style="margin-top: 30px;">
+                "With Indira's vision, Arghyakamal's precision, and Sayan's soul-stirring music, Lyangra has the creative DNA to become India's next Oscar contender."
+            </div>
+        </div>
+
+        <!-- SLIDE 10: PRODUCTION PLAN -->
+        <div class="slide">
+            <h2>Production Plan & Timeline</h2>
+            
+            <h3>Pre-Production (6 months)</h3>
+            <ul>
+                <li>Months 1-2: Script finalization, director & key cast attachment</li>
+                <li>Months 2-3: Location scouting (West Bengal villages, Kolkata, Delhi)</li>
+                <li>Months 3-4: Child actor auditions & casting completion</li>
+                <li>Months 4-6: Wheelchair racing training for actors, technical rehearsals</li>
+                <li>Month 6: Set construction, costume design, full crew assembly</li>
+            </ul>
+
+            <h3>Principal Photography (90 days)</h3>
+            <ul>
+                <li><strong>Phase 1 (35 days):</strong> Village sequences (West Bengal rural locations)</li>
+                <li><strong>Phase 2 (30 days):</strong> Kolkata sequences (Maidan, chawl, restaurant)</li>
+                <li><strong>Phase 3 (25 days):</strong> Delhi sequences (National stadium, racing finals)</li>
+            </ul>
+
+            <h3>Post-Production (6 months)</h3>
+            <ul>
+                <li>Months 1-3: Picture editing, rough cut assembly</li>
+                <li>Months 2-4: VFX work (stadium crowd enhancement, wheelchair racing details)</li>
+                <li>Months 3-5: Music composition, recording, sound design</li>
+                <li>Months 4-6: Color grading, final mix, DCP mastering</li>
+                <li>Month 6: CBFC certification, marketing materials preparation</li>
+            </ul>
+
+            <h3>Marketing & Release (4 months)</h3>
+            <ul>
+                <li>Months 1-2: Teaser launch, social media campaign, partnership announcements</li>
+                <li>Month 3: Trailer launch, press junkets, disability advocacy events</li>
+                <li>Month 4: Premiere, wide theatrical release (2500+ screens)</li>
+            </ul>
+
+            <div class="stats-grid" style="margin-top: 30px;">
+                <div class="stat-box">
+                    <div class="stat-number">16</div>
+                    <div class="stat-label">Months Total Timeline</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">90</div>
+                    <div class="stat-label">Days Shooting Schedule</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">2500+</div>
+                    <div class="stat-label">Theatrical Screens</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: SOCIAL IMPACT & PARTNERSHIPS -->
+        <div class="slide">
+            <h2>Social Impact & Strategic Partnerships</h2>
+            
+            <h3>Beyond Box Office: Creating Real Change</h3>
+            <p>Lyangra isn't just a film—it's a movement to change how India views disability.</p>
+
+            <div class="three-column">
+                <div class="column-box">
+                    <h4>Educational Partnerships</h4>
+                    <p>Partner with Ministry of Education for school screenings nationwide. Create study guides addressing disability awareness.</p>
+                </div>
+                
+                <div class="column-box">
+                    <h4>NGO Collaborations</h4>
+                    <p>Work with organizations like Ability Foundation, Enable India, National Centre for Promotion of Employment for Disabled People (NCPEDP).</p>
+                </div>
+                
+                <div class="column-box">
+                    <h4>Corporate CSR</h4>
+                    <p>Leverage corporate CSR funds for inclusive infrastructure development, sponsored screenings, and para-sports training centers.</p>
+                </div>
+            </div>
+
+            <h3>Government Support Potential</h3>
+            <ul>
+                <li><strong>Ministry of Sports & Youth Affairs:</strong> Official endorsement for para-athletics promotion</li>
+                <li><strong>Ministry of Social Justice & Empowerment:</strong> Disability rights advocacy partnership</li>
+                <li><strong>West Bengal State Government:</strong> Location support, tax incentives, promotional partnerships</li>
+                <li><strong>Paralympic Committee of India:</strong> Technical consultation and endorsement</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3 style="color: white; margin-top: 0;">Awards Potential</h3>
+                <p style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.25rem); margin: 0;">Strong contender for National Film Awards (Best Film, Best Actor, Best Actress), Filmfare Awards, and India's official Oscar entry. International film festival circuit (Toronto, Busan, Berlin) for global recognition.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: COMPETITIVE ADVANTAGE -->
+        <div class="slide">
+            <h2>What Makes Lyangra Different</h2>
+            
+            <h3>1. First-Mover Advantage</h3>
+            <p>No mainstream Indian film has tackled para-athletics. We own this space completely.</p>
+
+            <h3>2. Authentic Representation</h3>
+            <p>Commitment to casting differently-abled actors, consulting with para-athletes, and portraying disability with dignity—not pity.</p>
+
+            <h3>3. Genre-Blending Appeal</h3>
+            <p>This is simultaneously a sports thriller (sabotage, corruption, re-race climax), family drama (mother-son bond), and social commentary (disability prejudice)—multiple audience hooks.</p>
+
+            <h3>4. Regional Stronghold + National Appeal</h3>
+            <p>While rooted in Bengali culture, the story's themes are universal. Dangal proved regional stories can become national phenomenons.</p>
+
+            <h3>5. Built-In Media Coverage</h3>
+            <p>Every aspect of this film—from differently-abled casting to the true story inspiration—will generate organic media coverage worth crores in free publicity.</p>
+
+            <h3>6. Long Tail Revenue</h3>
+            <p>This film will be relevant for decades. Schools, disability organizations, and sports institutions will screen it perpetually. Think Taare Zameen Par's longevity.</p>
+
+            <div class="quote">
+                "We're not making a film about disability. We're making a film about ability that happens to feature a differently-abled protagonist."
+            </div>
+        </div>
+
+        <!-- SLIDE 13: RISK MITIGATION -->
+        <div class="slide">
+            <h2>Risk Mitigation Strategy</h2>
+            
+            <h3>Identified Risks & Solutions</h3>
+            
+            <div class="character-grid">
+                <div class="character-card">
+                    <h4>Risk: Child Actor Performance</h4>
+                    <p><strong>Mitigation:</strong> Extensive 6-month training program, experienced acting coach, multiple child actors cast for different age ranges, rehearsal-heavy shooting schedule.</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>Risk: Sensitive Subject Matter</h4>
+                    <p><strong>Mitigation:</strong> Disability rights consultants on payroll, sensitivity readers for script, partnerships with leading disability advocacy organizations, test screenings with differently-abled communities.</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>Risk: Budget Overruns</h4>
+                    <p><strong>Mitigation:</strong> 10% contingency built in (₹4 Cr), detailed pre-production planning, experienced line producer, storyboard-driven shooting for efficiency.</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>Risk: Regional Language Limitation</h4>
+                    <p><strong>Mitigation:</strong> Simultaneous Hindi dubbing, English subtitles for international markets, strategic release timing (Durga Puja for Bengal, Diwali for pan-India).</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>Risk: Racing Sequences Execution</h4>
+                    <p><strong>Mitigation:</strong> Hire international para-athletics stunt coordinators, multiple camera setups, VFX backup for crowd enhancement, real Paralympic athletes as body doubles/consultants.</p>
+                </div>
+                
+                <div class="character-card">
+                    <h4>Risk: Marketing Reach</h4>
+                    <p><strong>Mitigation:</strong> ₹15 Cr P&A budget, grassroots marketing through NGOs and schools, social media influencer partnerships, government promotional support.</p>
+                </div>
+            </div>
+
+            <h3>Insurance & Legal Compliance</h3>
+            <ul>
+                <li>Comprehensive production insurance (₹60 Cr coverage)</li>
+                <li>Child welfare officer on set (legal requirement)</li>
+                <li>Location permits secured pre-production</li>
+                <li>Music licensing and copyright clearances</li>
+                <li>Errors & Omissions insurance for distribution</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 14: INVESTMENT ASK -->
+        <div class="slide">
+            <h2>Investment Opportunity</h2>
+            
+            <h3>We Are Seeking: ₹57 Crores</h3>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">₹45Cr</div>
+                    <div class="stat-label">Production Budget</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">₹12Cr</div>
+                    <div class="stat-label">Marketing & Distribution (P&A)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">212-365%</div>
+                    <div class="stat-label">Projected ROI</div>
+                </div>
+            </div>
+
+            <h3>Investment Structure Options</h3>
+            
+            <div class="three-column">
+                <div class="column-box">
+                    <h4>Option 1: Full Financing</h4>
+                    <p><strong>₹57 Cr investment</strong></p>
+                    <p>100% profit share after recoupment of investment + 15% premium</p>
+                </div>
+                
+                <div class="column-box">
+                    <h4>Option 2: Co-Production</h4>
+                    <p><strong>₹28.5 Cr investment (50%)</strong></p>
+                    <p>50% profit share, shared creative control, co-producer credit</p>
+                </div>
+                
+                <div class="column-box">
+                    <h4>Option 3: Territory Rights</h4>
+                    <p><strong>Variable investment</strong></p>
+                    <p>Acquire distribution rights for specific territories (West Bengal, North India, International, etc.)</p>
+                </div>
+            </div>
+
+            <h3>What Investors Receive</h3>
+            <ul>
+                <li><strong>Producer/Co-Producer credit</strong> (depending on investment level)</li>
+                <li><strong>Equity stake</strong> in production company (if applicable)</li>
+                <li><strong>First-look rights</strong> on future projects</li>
+                <li><strong>Premiere invitations</strong> and red carpet access</li>
+                <li><strong>CSR recognition</strong> for supporting disability representation</li>
+                <li><strong>Tax benefits</strong> under Section 80C (consult tax advisor)</li>
+                <li><strong>Quarterly financial reports</strong> and production updates</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3 style="color: white; margin-top: 0;">Why Invest Now</h3>
+                <p style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.25rem);">The Indian sports biopic genre is proven. Disability representation is a blue ocean. Post-COVID, family-friendly inspirational content is thriving. This is the right story at the right time with the right budget. First investors secure best terms and maximum creative involvement.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: CALL TO ACTION -->
+        <div class="slide">
+            <div class="cta-box">
+                <h2>Let's Create History Together</h2>
+                <p>Lyangra is more than a film—it's a cultural milestone that will change how 1.4 billion Indians view disability.</p>
+                <p>Join us in bringing this inspiring true story to screens across India and the world.</p>
+                
+                <div style="margin-top: 40px; font-size: clamp(1rem, 2.5vw, 1.3rem);">
+                    <strong>What We Offer:</strong><br><br>
+                    ✓ Award-Winning Creative Team (Cannes, Oscar-Contending, National Award Winners)<br>
+                    ✓ Authentic, Powerful Story with Universal Appeal<br>
+                    ✓ First Indian Para-Athletics Feature Film<br>
+                    ✓ Complete Script & Production Plan Ready<br>
+                    ✓ Proven Market Potential in Sports Biopic Genre<br><br>
+                    
+                    <strong>Ready for Production:</strong><br><br>
+                    ✓ Director, Editor, Music Director Attached<br>
+                    ✓ Complete Screenplay with Scene-by-Scene Breakdown<br>
+                    ✓ Location Scouting Reports Available<br>
+                    ✓ Market Research & Distribution Strategy Complete<br><br>
+                    
+                    <div style="background: white; color: #ff6b35; padding: 20px; border-radius: 12px; margin-top: 25px; font-size: clamp(0.9rem, 2.5vw, 1.1rem);">
+                        <strong>Contact for Partnership Discussion:</strong><br>
+                        📧 dharindira@gmail.com<br>
+                        📱 +91 7439973347<br>
+                        🌐 ikastudios.com<br><br>
+                        <em style="font-size: 0.9em; color: #666;">We welcome discussions with producers, distributors, and co-production partners who share our vision of creating meaningful, commercially viable cinema.</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p><strong>LYANGRA</strong> | A Film That Will Inspire Millions</p>
+            <p style="margin-top: 15px; font-size: 0.95em; opacity: 0.8;">
+                "To every child who's been called 'different,' who's been told they can't—<br>
+                don't let anyone define you. Your disability is not your identity. Your dreams are."
+            </p>
+            <p style="margin-top: 30px; font-size: 0.9em;">
+                © 2026 Lyangra Productions | All Rights Reserved<br>
+                This pitch deck is confidential and intended solely for potential investors and distributors.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
